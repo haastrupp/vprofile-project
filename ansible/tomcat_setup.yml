@@ -50,13 +50,13 @@
     - debug:
         msg: "{{unarchive_info.files[0].split('/')[0]}}"
 
-    - name: Synchronize /tmp/tomcat8/tomcat_cont /usr/local/tomcat8.
-      synchronize:
-        src: "/tmp/tomcat8/{{unarchive_info.files[0].split('/')[0]}}/"
-        dest: /usr/local/tomcat8/
-        rsync_path: "sudo rsync"  # Use sudo on the remote system
-        recursive: true
-      delegate_to: "{{ inventory_hostname }}"
+    # - name: Synchronize /tmp/tomcat8/tomcat_cont /usr/local/tomcat8.
+    #   synchronize:
+    #     src: "/tmp/tomcat8/{{unarchive_info.files[0].split('/')[0]}}/"
+    #     dest: /usr/local/tomcat8/
+    #     rsync_path: "sudo rsync"  # Use sudo on the remote system
+    #     recursive: true
+    #   delegate_to: "{{ inventory_hostname }}"
 
     - name: Change ownership of /usr/local/tomcat8
       file:
